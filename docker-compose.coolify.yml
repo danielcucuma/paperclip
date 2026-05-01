@@ -1,4 +1,19 @@
 services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: paperclip
+      POSTGRES_PASSWORD: paperclip
+      POSTGRES_DB: paperclip
+    volumes:
+      - kukuma-pg:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paperclip"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   kukuma-ai:
     build:
       context: .
@@ -7,6 +22,7 @@ services:
       - "3100:3100"
     environment:
       HOST: "0.0.0.0"
+      DATABASE_URL: "postgresql://paperclip:paperclip@postgres:5432/paperclip"
       PAPERCLIP_HOME: "/data"
       PAPERCLIP_DEPLOYMENT_MODE: "authenticated"
       PAPERCLIP_DEPLOYMENT_EXPOSURE: "public"
@@ -14,10 +30,13 @@ services:
       BETTER_AUTH_SECRET: "${BETTER_AUTH_SECRET}"
       ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
       OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
-      PAPERCLIP_FORCE_RESET_SCHEMA: "${PAPERCLIP_FORCE_RESET_SCHEMA:-false}"
     volumes:
-      - kukuma-data-v2:/data
+      - kukuma-data:/data
+    depends_on:
+      postgres:
+        condition: service_healthy
     restart: unless-stopped
 
 volumes:
-  kukuma-data-v2:
+  kukuma-pg:
+  kukuma-data:

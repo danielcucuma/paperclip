@@ -689,21 +689,9 @@ export async function applyPendingMigrations(url: string): Promise<void> {
   }
 
   if (initialState.reason === "no-migration-journal-non-empty-db") {
-    if (process.env.PAPERCLIP_FORCE_RESET_SCHEMA !== "true") {
-      throw new Error(
-        "Database has tables but no migration journal; automatic migration is unsafe. Initialize migration history manually.",
-      );
-    }
-    // PAPERCLIP_FORCE_RESET_SCHEMA=true: drop and recreate the public schema so
-    // migrations can run from scratch. Only safe on first-time deploys with no real data.
-    const resetSql = createUtilitySql(url);
-    try {
-      await resetSql`DROP SCHEMA public CASCADE`;
-      await resetSql`CREATE SCHEMA public`;
-    } finally {
-      await resetSql.end();
-    }
-    return applyPendingMigrations(url);
+    throw new Error(
+      "Database has tables but no migration journal; automatic migration is unsafe. Initialize migration history manually.",
+    );
   }
 
   let state = await inspectMigrations(url);
