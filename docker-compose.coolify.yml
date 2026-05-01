@@ -15,8 +15,8 @@ services:
       ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
       OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
     volumes:
-      - kukuma-data:/data
+      - kukuma-data-v2:/data
     restart: unless-stopped
 
 volumes:
-  kukuma-data:
+  kukuma-data-v2:
