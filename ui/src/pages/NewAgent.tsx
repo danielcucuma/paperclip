@@ -110,8 +110,8 @@ export function NewAgent() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: "Agents", href: "/agents" },
-      { label: "New Agent" },
+      { label: "Agentes", href: "/agents" },
+      { label: "Nuevo Agente" },
     ]);
   }, [setBreadcrumbs]);
 

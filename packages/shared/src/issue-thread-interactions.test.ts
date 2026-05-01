@@ -8,7 +8,7 @@ describe("issue thread interaction schemas", () => {
       payload: {
         version: 1,
         prompt: "Apply this plan?",
-        acceptLabel: "Apply",
+        acceptLabel: "Aplicar",
         rejectLabel: "Revise",
         rejectRequiresReason: true,
         rejectReasonLabel: "What needs to change?",
@@ -23,7 +23,7 @@ describe("issue thread interaction schemas", () => {
       continuationPolicy: "none",
       payload: {
         prompt: "Apply this plan?",
-        acceptLabel: "Apply",
+        acceptLabel: "Aplicar",
         rejectLabel: "Revise",
         rejectRequiresReason: true,
         rejectReasonLabel: "What needs to change?",

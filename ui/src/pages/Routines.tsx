@@ -292,7 +292,7 @@ function RoutineListRow({
             aria-label={enabled ? `Disable ${routine.title}` : `Enable ${routine.title}`}
           />
           <span className="w-12 text-xs text-muted-foreground">
-            {isArchived ? "Archived" : isDraft ? "Draft" : enabled ? "On" : "Off"}
+            {isArchived ? "Archivado" : isDraft ? "Draft" : enabled ? "On" : "Off"}
           </span>
         </div>
 
@@ -317,13 +317,13 @@ function RoutineListRow({
               onClick={() => onToggleEnabled(routine, enabled)}
               disabled={isStatusPending || isArchived}
             >
-              {enabled ? "Pause" : "Enable"}
+              {enabled ? "Pausar" : "Enable"}
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => onToggleArchived(routine)}
               disabled={isStatusPending}
             >
-              {routine.status === "archived" ? "Restore" : "Archive"}
+              {routine.status === "archived" ? "Restore" : "Archivar"}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -374,7 +374,7 @@ export function Routines() {
   const [routineViewState, setRoutineViewState] = useState<RoutineViewState>(() => getRoutineViewState(routineViewStateKey));
 
   useEffect(() => {
-    setBreadcrumbs([{ label: "Routines" }]);
+    setBreadcrumbs([{ label: "Rutinas" }]);
   }, [setBreadcrumbs]);
 
   useEffect(() => {
@@ -642,7 +642,7 @@ export function Routines() {
           value={activeTab}
           onValueChange={handleTabChange}
           items={[
-            { value: "routines", label: "Routines" },
+            { value: "routines", label: "Rutinas" },
             { value: "runs", label: "Recent Runs" },
           ]}
         />
@@ -654,7 +654,7 @@ export function Routines() {
             <div className="flex items-center gap-1">
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-xs" title="Sort">
+                  <Button variant="ghost" size="sm" className="text-xs" title="Ordenar">
                     <ArrowUpDown className="h-3.5 w-3.5 sm:h-3 sm:w-3 sm:mr-1" />
                     <span className="hidden sm:inline">Sort</span>
                   </Button>
@@ -662,10 +662,10 @@ export function Routines() {
                 <PopoverContent align="end" className="w-44 p-0">
                   <div className="p-2 space-y-0.5">
                     {([
-                      ["updated", "Updated"],
-                      ["created", "Created"],
+                      ["updated", "Actualizado"],
+                      ["created", "Creado"],
                       ["lastRun", "Last run"],
-                      ["title", "Title"],
+                      ["title", "Título"],
                     ] as const).map(([field, label]) => (
                       <button
                         key={field}
@@ -695,7 +695,7 @@ export function Routines() {
               </Popover>
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-xs" title="Group">
+                  <Button variant="ghost" size="sm" className="text-xs" title="Agrupar">
                     <Layers className="h-3.5 w-3.5 sm:h-3 sm:w-3 sm:mr-1" />
                     <span className="hidden sm:inline">Group</span>
                   </Button>
@@ -705,7 +705,7 @@ export function Routines() {
                     {([
                       ["project", "Project"],
                       ["assignee", "Agent"],
-                      ["none", "None"],
+                      ["none", "Ninguno"],
                     ] as const).map(([value, label]) => (
                       <button
                         key={value}
@@ -817,7 +817,7 @@ export function Routines() {
                     value={draft.assigneeAgentId}
                     options={assigneeOptions}
                     recentOptionIds={recentAssigneeIds}
-                    placeholder="Assignee"
+                    placeholder="Asignado"
                     noneLabel="No assignee"
                     searchPlaceholder="Search assignees..."
                     emptyMessage="No assignees found."

@@ -341,7 +341,7 @@ export function FailedRunInboxRow({
             disabled={isRetrying}
           >
             <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
-            {isRetrying ? "Retrying…" : "Retry"}
+            {isRetrying ? "Retrying…" : "Reintentar"}
           </Button>
           {!showUnreadSlot && (
             <button
@@ -365,7 +365,7 @@ export function FailedRunInboxRow({
           disabled={isRetrying}
         >
           <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
-          {isRetrying ? "Retrying…" : "Retry"}
+          {isRetrying ? "Retrying…" : "Reintentar"}
         </Button>
         {!showUnreadSlot && (
           <button
@@ -723,7 +723,7 @@ export function Inbox() {
   });
 
   useEffect(() => {
-    setBreadcrumbs([{ label: "Inbox" }]);
+    setBreadcrumbs([{ label: "Bandeja" }]);
   }, [setBreadcrumbs]);
 
   useEffect(() => {
@@ -1980,7 +1980,7 @@ export function Inbox() {
                 variant="outline"
                 size="icon"
                 className={cn("h-8 w-8 shrink-0", groupBy !== "none" && "bg-accent")}
-                title="Group"
+                title="Agrupar"
               >
                 <Layers className="h-3.5 w-3.5" />
               </Button>
@@ -1988,8 +1988,8 @@ export function Inbox() {
             <PopoverContent align="end" className="w-40 p-2">
               <div className="space-y-0.5">
                 {([
-                  ["none", "None"],
-                  ["type", "Type"],
+                  ["none", "Ninguno"],
+                  ["type", "Tipo"],
                   ...(isolatedWorkspacesEnabled ? ([["workspace", "Workspace"]] as const) : []),
                 ] as const).map(([value, label]) => (
                   <button
@@ -2070,7 +2070,7 @@ export function Inbox() {
               <SelectItem value="everything">All categories</SelectItem>
               <SelectItem value="issues_i_touched">My recent issues</SelectItem>
               <SelectItem value="join_requests">Join requests</SelectItem>
-              <SelectItem value="approvals">Approvals</SelectItem>
+              <SelectItem value="approvals">Aprobaciones</SelectItem>
               <SelectItem value="failed_runs">Failed runs</SelectItem>
               <SelectItem value="alerts">Alerts</SelectItem>
             </SelectContent>
@@ -2257,7 +2257,7 @@ export function Inbox() {
                       >
                         <div className="h-px flex-1 bg-border/80" />
                         <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-                          {group.searchSection === "archived" ? "Archived" : "Other results"}
+                          {group.searchSection === "archived" ? "Archivado" : "Other results"}
                         </span>
                         <div className="h-px flex-1 bg-border/80" />
                       </div>,

@@ -113,7 +113,7 @@ export function CommandPalette() {
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
 
-        <CommandGroup heading="Actions">
+        <CommandGroup heading="Acciones">
           <CommandItem
             onSelect={() => {
               setOpen(false);

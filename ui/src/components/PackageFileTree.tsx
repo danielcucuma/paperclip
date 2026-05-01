@@ -150,15 +150,15 @@ export function parseFrontmatter(content: string): { data: FrontmatterData; body
 }
 
 export const FRONTMATTER_FIELD_LABELS: Record<string, string> = {
-  name: "Name",
-  title: "Title",
+  name: "Nombre",
+  title: "Título",
   kind: "Kind",
   reportsTo: "Reports to",
   skills: "Skills",
-  status: "Status",
-  description: "Description",
-  priority: "Priority",
-  assignee: "Assignee",
+  status: "Estado",
+  description: "Descripción",
+  priority: "Prioridad",
+  assignee: "Asignado",
   project: "Project",
   recurring: "Recurring",
   targetDate: "Target date",

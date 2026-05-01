@@ -169,9 +169,9 @@ export function CompanyEnvironments() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: selectedCompany?.name ?? "Company", href: "/dashboard" },
-      { label: "Settings", href: "/company/settings" },
-      { label: "Environments" },
+      { label: selectedCompany?.name ?? "Empresa", href: "/dashboard" },
+      { label: "Ajustes", href: "/company/settings" },
+      { label: "Entornos" },
     ]);
   }, [selectedCompany?.name, setBreadcrumbs]);
 
@@ -535,7 +535,7 @@ export function CompanyEnvironments() {
                         variant="ghost"
                         onClick={() => handleEditEnvironment(environment)}
                       >
-                        {isEditing ? "Editing" : "Edit"}
+                        {isEditing ? "Editing" : "Editar"}
                       </Button>
                     </div>
                   </div>
@@ -564,7 +564,7 @@ export function CompanyEnvironments() {
             {editingEnvironmentId ? "Edit environment" : "Add environment"}
           </div>
           <div className="space-y-3">
-            <Field label="Name" hint="Operator-facing name for this execution target.">
+            <Field label="Nombre" hint="Operator-facing name for this execution target.">
               <input
                 className="w-full rounded-md border border-border bg-transparent px-2.5 py-1.5 text-sm outline-none"
                 type="text"
@@ -572,7 +572,7 @@ export function CompanyEnvironments() {
                 onChange={(e) => setEnvironmentForm((current) => ({ ...current, name: e.target.value }))}
               />
             </Field>
-            <Field label="Description" hint="Optional note about what this machine is for.">
+            <Field label="Descripción" hint="Optional note about what this machine is for.">
               <input
                 className="w-full rounded-md border border-border bg-transparent px-2.5 py-1.5 text-sm outline-none"
                 type="text"
@@ -637,7 +637,7 @@ export function CompanyEnvironments() {
                     onChange={(e) => setEnvironmentForm((current) => ({ ...current, sshPort: e.target.value }))}
                   />
                 </Field>
-                <Field label="Username" hint="SSH login user.">
+                <Field label="Usuario" hint="SSH login user.">
                   <input
                     className="w-full rounded-md border border-border bg-transparent px-2.5 py-1.5 text-sm outline-none"
                     type="text"
@@ -701,7 +701,7 @@ export function CompanyEnvironments() {
 
             {environmentForm.driver === "sandbox" ? (
               <div className="grid gap-3 md:grid-cols-2">
-                <Field label="Provider" hint="Installed run-capable sandbox provider plugins appear here.">
+                <Field label="Proveedor" hint="Installed run-capable sandbox provider plugins appear here.">
                   <select
                     className="w-full rounded-md border border-border bg-transparent px-2.5 py-1.5 text-sm outline-none"
                     value={environmentForm.sandboxProvider}

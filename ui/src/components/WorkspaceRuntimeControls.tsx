@@ -237,7 +237,7 @@ function CommandActionButtons({
         const request = buildRequest(item, action);
         const Icon = action === "stop" ? Square : action === "restart" ? RotateCcw : Play;
         const label = action === "run"
-          ? "Run"
+          ? "Ejecutar"
           : action === "start"
             ? "Start"
             : action === "stop"

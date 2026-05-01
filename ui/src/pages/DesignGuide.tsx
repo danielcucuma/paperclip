@@ -185,8 +185,8 @@ export function DesignGuide() {
     "This is an editable description. Click to edit it — the textarea auto-sizes to fit the content without layout shift."
   );
   const [filters, setFilters] = useState<FilterValue[]>([
-    { key: "status", label: "Status", value: "Active" },
-    { key: "priority", label: "Priority", value: "High" },
+    { key: "status", label: "Estado", value: "Activo" },
+    { key: "priority", label: "Prioridad", value: "Alta" },
   ]);
 
   return (
@@ -648,7 +648,7 @@ export function DesignGuide() {
         <Collapsible open={collapsibleOpen} onOpenChange={setCollapsibleOpen} className="space-y-2">
           <CollapsibleTrigger asChild>
             <Button variant="outline" size="sm">
-              {collapsibleOpen ? "Hide" : "Show"} advanced filters
+              {collapsibleOpen ? "Ocultar" : "Show"} advanced filters
             </Button>
           </CollapsibleTrigger>
           <CollapsibleContent className="rounded-md border border-border p-3">
@@ -726,7 +726,7 @@ export function DesignGuide() {
                 </CommandItem>
               </CommandGroup>
               <CommandSeparator />
-              <CommandGroup heading="Actions">
+              <CommandGroup heading="Acciones">
                 <CommandItem>
                   <CommandIcon className="h-4 w-4" />
                   Open command palette
@@ -748,7 +748,7 @@ export function DesignGuide() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">Projects</BreadcrumbLink>
+              <BreadcrumbLink href="#">Proyectos</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -802,7 +802,7 @@ export function DesignGuide() {
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="runs">Runs</TabsTrigger>
               <TabsTrigger value="config">Config</TabsTrigger>
-              <TabsTrigger value="costs">Costs</TabsTrigger>
+              <TabsTrigger value="costs">Costos</TabsTrigger>
             </TabsList>
             <TabsContent value="overview">
               <p className="text-sm text-muted-foreground py-4">Overview tab content.</p>
@@ -913,8 +913,8 @@ export function DesignGuide() {
             size="sm"
             onClick={() =>
               setFilters([
-                { key: "status", label: "Status", value: "Active" },
-                { key: "priority", label: "Priority", value: "High" },
+                { key: "status", label: "Estado", value: "Activo" },
+                { key: "priority", label: "Prioridad", value: "Alta" },
               ])
             }
           >
@@ -935,7 +935,7 @@ export function DesignGuide() {
           </div>
         </SubSection>
 
-        <SubSection title="Group">
+        <SubSection title="Agrupar">
           <AvatarGroup>
             <Avatar><AvatarFallback>A1</AvatarFallback></Avatar>
             <Avatar><AvatarFallback>A2</AvatarFallback></Avatar>
@@ -985,7 +985,7 @@ export function DesignGuide() {
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon-sm"><Settings /></Button>
             </TooltipTrigger>
-            <TooltipContent>Settings</TooltipContent>
+            <TooltipContent>Ajustes</TooltipContent>
           </Tooltip>
         </div>
       </Section>
@@ -1298,14 +1298,14 @@ export function DesignGuide() {
             ["LayoutDashboard", LayoutDashboard],
             ["Bot", Bot],
             ["DollarSign", DollarSign],
-            ["History", History],
-            ["Search", Search],
+            ["Historial", History],
+            ["Buscar", Search],
             ["Plus", Plus],
             ["Trash2", Trash2],
             ["Settings", Settings],
             ["User", User],
             ["Mail", Mail],
-            ["Upload", Upload],
+            ["Subir", Upload],
             ["Zap", Zap],
           ].map(([name, Icon]) => {
             const LucideIcon = Icon as React.FC<{ className?: string }>;

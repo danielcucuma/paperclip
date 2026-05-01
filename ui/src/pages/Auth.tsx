@@ -169,7 +169,7 @@ export function AuthPage() {
                 setMode(mode === "sign_in" ? "sign_up" : "sign_in");
               }}
             >
-              {mode === "sign_in" ? "Create one" : "Sign in"}
+              {mode === "sign_in" ? "Create one" : "Iniciar Sesión"}
             </button>
           </div>
         </div>

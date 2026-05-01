@@ -66,7 +66,7 @@ describe("collectLiveIssueIds", () => {
         finishedAt: "2026-04-20T10:05:00.000Z",
         createdAt: "2026-04-20T10:04:00.000Z",
         agentId: "agent-5",
-        agentName: "Done",
+        agentName: "Listo",
         adapterType: "codex_local",
         issueId: "completed-issue",
       },

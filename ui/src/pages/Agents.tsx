@@ -116,7 +116,7 @@ export function Agents() {
   }, [agents]);
 
   useEffect(() => {
-    setBreadcrumbs([{ label: "Agents" }]);
+    setBreadcrumbs([{ label: "Agentes" }]);
   }, [setBreadcrumbs]);
 
   if (!selectedCompanyId) {
@@ -137,8 +137,8 @@ export function Agents() {
           <PageTabBar
             items={[
               { value: "all", label: "All" },
-              { value: "active", label: "Active" },
-              { value: "paused", label: "Paused" },
+              { value: "active", label: "Activo" },
+              { value: "paused", label: "Pausado" },
               { value: "error", label: "Error" },
             ]}
             value={tab}
@@ -216,7 +216,7 @@ export function Agents() {
         <EmptyState
           icon={Bot}
           message="Create your first agent to get started."
-          action="New Agent"
+          action="Nuevo Agente"
           onAction={openNewAgent}
         />
       )}

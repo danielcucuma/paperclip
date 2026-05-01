@@ -212,7 +212,7 @@ export function describeToolInput(name: string, input: unknown): ToolInputDetail
   pushDetail("Target", readToolDetailValue(record.url) ?? readToolDetailValue(record.target));
   pushDetail("Prompt", readToolDetailValue(record.prompt) ?? readToolDetailValue(record.message));
   pushDetail("Pattern", readToolDetailValue(record.pattern));
-  pushDetail("Name", readToolDetailValue(record.name) ?? readToolDetailValue(record.title));
+  pushDetail("Nombre", readToolDetailValue(record.name) ?? readToolDetailValue(record.title));
 
   if (Array.isArray(record.paths) && record.paths.length > 0) {
     const paths = record.paths
@@ -248,7 +248,7 @@ export function summarizeToolResult(
     if (structured.body) {
       return truncate(structured.body.split("\n")[0] ?? structured.body, density === "compact" ? 84 : 140);
     }
-    if (structured.status === "completed") return "Completed";
+    if (structured.status === "completed") return "Completado";
     if (structured.status === "failed" || structured.status === "error") {
       return structured.exitCode ? `Failed with exit code ${structured.exitCode}` : "Failed";
     }

@@ -41,7 +41,7 @@ export function CompanySettingsSidebar() {
           className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
         >
           <ChevronLeft className="h-3.5 w-3.5 shrink-0" />
-          <span className="truncate">{selectedCompany?.name ?? "Company"}</span>
+          <span className="truncate">{selectedCompany?.name ?? "Empresa"}</span>
         </Link>
         <div className="flex items-center gap-2 px-2 py-1">
           <Settings className="h-4 w-4 text-muted-foreground shrink-0" />
@@ -56,18 +56,18 @@ export function CompanySettingsSidebar() {
           <SidebarNavItem to="/company/settings" label="General" icon={SlidersHorizontal} end />
           <SidebarNavItem
             to="/company/settings/environments"
-            label="Environments"
+            label="Entornos"
             icon={MonitorCog}
             end
           />
           <SidebarNavItem
             to="/company/settings/access"
-            label="Access"
+            label="Acceso"
             icon={Shield}
             badge={badges?.joinRequests ?? 0}
             end
           />
-          <SidebarNavItem to="/company/settings/invites" label="Invites" icon={MailPlus} end />
+          <SidebarNavItem to="/company/settings/invites" label="Invitaciones" icon={MailPlus} end />
         </div>
       </nav>
     </aside>

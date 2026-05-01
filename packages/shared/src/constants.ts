@@ -62,13 +62,13 @@ export const AGENT_ROLE_LABELS: Record<AgentRole, string> = {
   cto: "CTO",
   cmo: "CMO",
   cfo: "CFO",
-  security: "Security",
-  engineer: "Engineer",
-  designer: "Designer",
+  security: "Seguridad",
+  engineer: "Ingeniero",
+  designer: "Diseñador",
   pm: "PM",
   qa: "QA",
   devops: "DevOps",
-  researcher: "Researcher",
+  researcher: "Investigador",
   general: "General",
 };
 
@@ -486,10 +486,10 @@ export const HUMAN_COMPANY_MEMBERSHIP_ROLES = [
 export type HumanCompanyMembershipRole = (typeof HUMAN_COMPANY_MEMBERSHIP_ROLES)[number];
 
 export const HUMAN_COMPANY_MEMBERSHIP_ROLE_LABELS: Record<HumanCompanyMembershipRole, string> = {
-  owner: "Owner",
+  owner: "Propietario",
   admin: "Admin",
-  operator: "Operator",
-  viewer: "Viewer",
+  operator: "Operador",
+  viewer: "Observador",
 };
 
 export const INSTANCE_USER_ROLES = ["instance_admin"] as const;

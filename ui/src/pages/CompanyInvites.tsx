@@ -13,13 +13,13 @@ import { queryKeys } from "@/lib/queryKeys";
 const inviteRoleOptions = [
   {
     value: "viewer",
-    label: "Viewer",
+    label: "Observador",
     description: "Can view company work and follow along without operational permissions.",
     gets: "No built-in grants.",
   },
   {
     value: "operator",
-    label: "Operator",
+    label: "Operador",
     description: "Recommended for people who need to help run work without managing access.",
     gets: "Can assign tasks.",
   },
@@ -31,7 +31,7 @@ const inviteRoleOptions = [
   },
   {
     value: "owner",
-    label: "Owner",
+    label: "Propietario",
     description: "Full company access, including membership and permission management.",
     gets: "Everything in Admin, plus managing members and permission grants.",
   },
@@ -81,9 +81,9 @@ export function CompanyInvites() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: selectedCompany?.name ?? "Company", href: "/dashboard" },
-      { label: "Settings", href: "/company/settings" },
-      { label: "Invites" },
+      { label: selectedCompany?.name ?? "Empresa", href: "/dashboard" },
+      { label: "Ajustes", href: "/company/settings" },
+      { label: "Invitaciones" },
     ]);
   }, [selectedCompany?.name, setBreadcrumbs]);
 

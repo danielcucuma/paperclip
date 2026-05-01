@@ -39,9 +39,9 @@ export const issuePriorityOrder = ["critical", "high", "medium", "low"];
 
 export const issueQuickFilterPresets = [
   { label: "All", statuses: [] as string[] },
-  { label: "Active", statuses: ["todo", "in_progress", "in_review", "blocked"] },
-  { label: "Backlog", statuses: ["backlog"] },
-  { label: "Done", statuses: ["done", "cancelled"] },
+  { label: "Activo", statuses: ["todo", "in_progress", "in_review", "blocked"] },
+  { label: "Pendiente", statuses: ["backlog"] },
+  { label: "Listo", statuses: ["done", "cancelled"] },
 ];
 
 export function issueFilterLabel(value: string): string {

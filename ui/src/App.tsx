@@ -155,7 +155,7 @@ function OnboardingRoutePage() {
     ? `Add another agent to ${matchedCompany.name}`
     : companies.length > 0
       ? "Create another company"
-      : "Create your first company";
+      : "Crea tu primera empresa";
   const description = matchedCompany
     ? "Run onboarding again to add an agent and a starter task for this company."
     : companies.length > 0

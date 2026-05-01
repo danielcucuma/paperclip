@@ -150,14 +150,14 @@ describe("optimistic issue comments", () => {
         issueId: "issue-1",
         authorAgentId: null,
         authorUserId: "board-1",
-        body: "Updated",
+        body: "Actualizado",
         createdAt: new Date("2026-03-28T14:00:00.000Z"),
         updatedAt: new Date("2026-03-28T14:00:05.000Z"),
       },
     );
 
     expect(next).toHaveLength(1);
-    expect(next[0]?.body).toBe("Updated");
+    expect(next[0]?.body).toBe("Actualizado");
   });
 
   it("flattens paged comments into one chronological thread", () => {

@@ -39,7 +39,7 @@ export function BreadcrumbProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (breadcrumbs.length === 0) {
-      document.title = "Paperclip";
+      document.title = "Kukuma AI";
     } else {
       const parts = [...breadcrumbs].reverse().map((b) => b.label);
       document.title = `${parts.join(" · ")} · Paperclip`;

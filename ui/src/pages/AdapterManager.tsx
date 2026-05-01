@@ -266,8 +266,8 @@ export function AdapterManager() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: selectedCompany?.name ?? "Company", href: "/dashboard" },
-      { label: "Settings", href: "/instance/settings/general" },
+      { label: selectedCompany?.name ?? "Empresa", href: "/dashboard" },
+      { label: "Ajustes", href: "/instance/settings/general" },
       { label: "Adapters" },
     ]);
   }, [selectedCompany?.name, setBreadcrumbs]);
@@ -659,7 +659,7 @@ export function AdapterManager() {
                 }
               }}
             >
-              {removeMutation.isPending ? "Removing..." : "Remove"}
+              {removeMutation.isPending ? "Removing..." : "Remover"}
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -366,7 +366,7 @@ export function ProjectDetail() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: "Projects", href: "/projects" },
+      { label: "Proyectos", href: "/projects" },
       { label: project?.name ?? routeProjectRef ?? "Project" },
     ]);
   }, [setBreadcrumbs, project, routeProjectRef]);
@@ -620,11 +620,11 @@ export function ProjectDetail() {
       <Tabs value={activeTab ?? "list"} onValueChange={(value) => handleTabChange(value as ProjectTab)}>
         <PageTabBar
           items={[
-            { value: "list", label: "Issues" },
-            { value: "overview", label: "Overview" },
-            ...(showWorkspacesTab ? [{ value: "workspaces", label: "Workspaces" }] : []),
-            { value: "configuration", label: "Configuration" },
-            { value: "budget", label: "Budget" },
+            { value: "list", label: "Tareas" },
+            { value: "overview", label: "Resumen" },
+            ...(showWorkspacesTab ? [{ value: "workspaces", label: "Espacios" }] : []),
+            { value: "configuration", label: "Configuración" },
+            { value: "budget", label: "Presupuesto" },
             ...pluginTabItems.map((item) => ({
               value: item.value,
               label: item.label,

@@ -146,18 +146,18 @@ function formatArgList(value: unknown): string {
 const codexThinkingEffortOptions = [
   { id: "", label: "Auto" },
   { id: "minimal", label: "Minimal" },
-  { id: "low", label: "Low" },
-  { id: "medium", label: "Medium" },
-  { id: "high", label: "High" },
+  { id: "low", label: "Baja" },
+  { id: "medium", label: "Media" },
+  { id: "high", label: "Alta" },
   { id: "xhigh", label: "X-High" },
 ] as const;
 
 const openCodeThinkingEffortOptions = [
   { id: "", label: "Auto" },
   { id: "minimal", label: "Minimal" },
-  { id: "low", label: "Low" },
-  { id: "medium", label: "Medium" },
-  { id: "high", label: "High" },
+  { id: "low", label: "Baja" },
+  { id: "medium", label: "Media" },
+  { id: "high", label: "Alta" },
   { id: "xhigh", label: "X-High" },
   { id: "max", label: "Max" },
 ] as const;
@@ -170,9 +170,9 @@ const cursorModeOptions = [
 
 const claudeThinkingEffortOptions = [
   { id: "", label: "Auto" },
-  { id: "low", label: "Low" },
-  { id: "medium", label: "Medium" },
-  { id: "high", label: "High" },
+  { id: "low", label: "Baja" },
+  { id: "medium", label: "Media" },
+  { id: "high", label: "Alta" },
 ] as const;
 
 
@@ -640,7 +640,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
               onClick={handleSave}
               disabled={!isCreate && props.isSaving}
             >
-              {!isCreate && props.isSaving ? "Saving..." : "Save"}
+              {!isCreate && props.isSaving ? "Saving..." : "Guardar"}
             </Button>
           </div>
         </div>
@@ -654,7 +654,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
             : <div className="px-4 py-2 text-xs font-medium text-muted-foreground">Identity</div>
           }
           <div className={cn(cards ? "border border-border rounded-lg p-4 space-y-3" : "px-4 pb-3 space-y-3")}>
-            <Field label="Name" hint={help.name}>
+            <Field label="Nombre" hint={help.name}>
               <DraftInput
                 value={eff("identity", "name", props.agent.name)}
                 onCommit={(v) => mark("identity", "name", v)}
@@ -663,7 +663,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
                 placeholder="Agent name"
               />
             </Field>
-            <Field label="Title" hint={help.title}>
+            <Field label="Título" hint={help.title}>
               <DraftInput
                 value={eff("identity", "title", props.agent.title ?? "")}
                 onCommit={(v) => mark("identity", "title", v || null)}
@@ -1411,7 +1411,7 @@ function ModelDropdown({
   }
 
   return (
-    <Field label="Model" hint={help.model}>
+    <Field label="Modelo" hint={help.model}>
       <Popover
         open={open}
         onOpenChange={(nextOpen) => {

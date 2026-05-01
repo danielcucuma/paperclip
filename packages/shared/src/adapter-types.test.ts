@@ -59,6 +59,6 @@ describe("dynamic adapter type validation schemas", () => {
       }).role,
     ).toBe("security");
 
-    expect(AGENT_ROLE_LABELS.security).toBe("Security");
+    expect(AGENT_ROLE_LABELS.security).toBe("Seguridad");
   });
 });

@@ -131,7 +131,7 @@ export function SidebarAccountMenu({
   const displayName = session?.user.name?.trim() || "Board";
   const secondaryLabel =
     session?.user.email?.trim() || (deploymentMode === "authenticated" ? "Signed in" : "Local workspace board");
-  const accountBadge = deploymentMode === "authenticated" ? "Account" : "Local";
+  const accountBadge = deploymentMode === "authenticated" ? "Cuenta" : "Local";
   const initials = deriveInitials(displayName);
   const profileHref = `/u/${deriveUserSlug(session?.user.name, session?.user.email, session?.user.id)}`;
 
@@ -208,7 +208,7 @@ export function SidebarAccountMenu({
                 onClick={closeNavigationChrome}
               />
               <MenuAction
-                label="Documentation"
+                label="Documentación"
                 description="Open Paperclip docs in a new tab."
                 icon={BookOpen}
                 href={DOCS_URL}
@@ -239,7 +239,7 @@ export function SidebarAccountMenu({
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block text-sm font-medium text-foreground">
-                      {signOutMutation.isPending ? "Signing out..." : "Sign out"}
+                      {signOutMutation.isPending ? "Signing out..." : "Cerrar Sesión"}
                     </span>
                     <span className="block text-xs text-muted-foreground">
                       End this browser session.

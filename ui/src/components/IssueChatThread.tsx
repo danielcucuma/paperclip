@@ -596,7 +596,7 @@ const IssueChatTextPart = memo(function IssueChatTextPart({ text, recessed }: { 
 });
 
 function humanizeValue(value: string | null) {
-  if (!value) return "None";
+  if (!value) return "Ninguno";
   return value.replace(/_/g, " ");
 }
 
@@ -949,8 +949,8 @@ function CopyablePreBlock({ children, className }: { children: string; className
           "absolute right-1.5 top-1.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-background/80 text-muted-foreground opacity-0 backdrop-blur-sm transition-opacity hover:text-foreground group-hover/pre:opacity-100",
           copied && "opacity-100",
         )}
-        title="Copy"
-        aria-label="Copy"
+        title="Copiar"
+        aria-label="Copiar"
         onClick={() => {
           void navigator.clipboard.writeText(children).then(() => {
             setCopied(true);
@@ -3022,7 +3022,7 @@ const IssueChatComposer = forwardRef<IssueChatComposerHandle, IssueChatComposerP
           <InlineEntitySelector
             value={reassignTarget}
             options={reassignOptions}
-            placeholder="Assignee"
+            placeholder="Asignado"
             noneLabel="No assignee"
             searchPlaceholder="Search assignees..."
             emptyMessage="No assignees found."

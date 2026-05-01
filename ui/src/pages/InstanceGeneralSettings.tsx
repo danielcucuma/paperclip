@@ -37,7 +37,7 @@ export function InstanceGeneralSettings() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: "Instance Settings" },
+      { label: "Ajustes de Instancia" },
       { label: "General" },
     ]);
   }, [setBreadcrumbs]);
@@ -128,7 +128,7 @@ export function InstanceGeneralSettings() {
             />
             <StatusBox
               label="Bootstrap invite"
-              value={healthQuery.data?.bootstrapInviteActive ? "Active" : "None"}
+              value={healthQuery.data?.bootstrapInviteActive ? "Activo" : "Ninguno"}
             />
           </div>
         </div>
@@ -364,7 +364,7 @@ export function InstanceGeneralSettings() {
             onClick={() => signOutMutation.mutate()}
           >
             <LogOut className="size-4" />
-            {signOutMutation.isPending ? "Signing out..." : "Sign out"}
+            {signOutMutation.isPending ? "Signing out..." : "Cerrar Sesión"}
           </Button>
         </div>
       </section>

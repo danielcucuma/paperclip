@@ -22,7 +22,7 @@ function incidentStateLabel(incident: BudgetIncident) {
   if (incident.status === "dismissed") return "Dismissed";
   if (incident.approvalStatus === "revision_requested") return "Escalated";
   if (incident.approvalStatus === "pending") return "Pending approval";
-  return "Open";
+  return "Abrir";
 }
 
 export function BudgetIncidentCard({

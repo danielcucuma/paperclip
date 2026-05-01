@@ -73,7 +73,7 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-64">
         <DropdownMenuLabel className="truncate">
-          {selectedCompany?.name ?? "Company"}
+          {selectedCompany?.name ?? "Empresa"}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
@@ -99,7 +99,7 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
               disabled={signOutMutation.isPending}
             >
               <LogOut className="size-4" />
-              <span>{signOutMutation.isPending ? "Signing out..." : "Sign out"}</span>
+              <span>{signOutMutation.isPending ? "Signing out..." : "Cerrar Sesión"}</span>
             </DropdownMenuItem>
           </>
         ) : null}

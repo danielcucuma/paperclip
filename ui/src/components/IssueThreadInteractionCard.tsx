@@ -62,13 +62,13 @@ function resolveActorLabel(args: {
   if (userId) {
     return formatAssigneeUserLabel(userId, currentUserId, userLabelMap) ?? "Board";
   }
-  return "Unknown";
+  return "Desconocido";
 }
 
 function statusLabel(status: IssueThreadInteraction["status"]) {
   switch (status) {
     case "pending":
-      return "Pending";
+      return "Pendiente";
     case "accepted":
       return "Accepted";
     case "rejected":
@@ -76,7 +76,7 @@ function statusLabel(status: IssueThreadInteraction["status"]) {
     case "answered":
       return "Answered";
     case "cancelled":
-      return "Cancelled";
+      return "Cancelado";
     case "expired":
       return "Expired";
     case "failed":
@@ -284,7 +284,7 @@ function TaskTreeNode({
         {hasMetadata ? (
           <div className="mt-2 flex flex-wrap gap-1.5">
             {hasExplicitAssignee ? (
-              <TaskField label="Assignee" value={assigneeLabel} />
+              <TaskField label="Asignado" value={assigneeLabel} />
             ) : null}
             {node.task.billingCode ? (
               <TaskField label="Billing" value={node.task.billingCode} />
@@ -293,7 +293,7 @@ function TaskTreeNode({
               <TaskField label="Project" value={node.task.projectId} tone="subtle" />
             ) : null}
             {labels.map((label) => (
-              <TaskField key={label} label="Label" value={label} tone="subtle" />
+              <TaskField key={label} label="Etiqueta" value={label} tone="subtle" />
             ))}
           </div>
         ) : null}
@@ -761,7 +761,7 @@ function AskUserQuestionsCard({
                 </div>
                 <TaskField
                   label={question.selectionMode === "single" ? "Pick" : "Pick many"}
-                  value={question.required ? "Required" : "Optional"}
+                  value={question.required ? "Requerido" : "Opcional"}
                   tone="subtle"
                 />
               </div>
@@ -1124,7 +1124,7 @@ function RequestConfirmationCard({
                   Confirming...
                 </>
               ) : (
-                interaction.payload.acceptLabel ?? "Confirm"
+                interaction.payload.acceptLabel ?? "Confirmar"
               )}
             </Button>
             <Button

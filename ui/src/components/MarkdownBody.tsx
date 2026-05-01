@@ -229,7 +229,7 @@ function CodeBlock({
     }, 1500);
   }, [children]);
 
-  const label = failed ? "Copy failed" : copied ? "Copied!" : "Copy";
+  const label = failed ? "Copy failed" : copied ? "Copied!" : "Copiar";
 
   return (
     <div className="paperclip-markdown-codeblock">

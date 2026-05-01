@@ -71,9 +71,9 @@ export function CompanyAccess() {
 
   useEffect(() => {
     setBreadcrumbs([
-      { label: selectedCompany?.name ?? "Company", href: "/dashboard" },
-      { label: "Settings", href: "/company/settings" },
-      { label: "Access" },
+      { label: selectedCompany?.name ?? "Empresa", href: "/dashboard" },
+      { label: "Ajustes", href: "/company/settings" },
+      { label: "Acceso" },
     ]);
   }, [selectedCompany?.name, setBreadcrumbs]);
 

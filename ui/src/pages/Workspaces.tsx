@@ -103,7 +103,7 @@ export function Workspaces() {
   });
 
   useEffect(() => {
-    setBreadcrumbs([{ label: "Workspaces" }]);
+    setBreadcrumbs([{ label: "Espacios" }]);
   }, [setBreadcrumbs]);
 
   const groups = useMemo(

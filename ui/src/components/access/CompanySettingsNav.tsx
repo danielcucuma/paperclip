@@ -4,9 +4,9 @@ import { useLocation, useNavigate } from "@/lib/router";
 
 const items = [
   { value: "general", label: "General", href: "/company/settings" },
-  { value: "environments", label: "Environments", href: "/company/settings/environments" },
-  { value: "access", label: "Access", href: "/company/settings/access" },
-  { value: "invites", label: "Invites", href: "/company/settings/invites" },
+  { value: "environments", label: "Entornos", href: "/company/settings/environments" },
+  { value: "access", label: "Acceso", href: "/company/settings/access" },
+  { value: "invites", label: "Invitaciones", href: "/company/settings/invites" },
 ] as const;
 
 type CompanySettingsTab = (typeof items)[number]["value"];

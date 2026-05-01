@@ -186,12 +186,12 @@ const statusColors: Record<string, string> = {
 
 const statusLabels: Record<string, string> = {
   todo: "To Do",
-  in_progress: "In Progress",
-  in_review: "In Review",
-  done: "Done",
-  blocked: "Blocked",
-  cancelled: "Cancelled",
-  backlog: "Backlog",
+  in_progress: "En Progreso",
+  in_review: "En Revisión",
+  done: "Listo",
+  blocked: "Bloqueado",
+  cancelled: "Cancelado",
+  backlog: "Pendiente",
 };
 
 export function IssueStatusChart({ issues }: { issues: { status: string; createdAt: Date }[] }) {

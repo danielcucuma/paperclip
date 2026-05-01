@@ -22,13 +22,13 @@ import {
 const inviteRoleOptions = [
   {
     value: "viewer",
-    label: "Viewer",
+    label: "Observador",
     description: "Can view company work and follow along without operational permissions.",
     gets: "No built-in grants.",
   },
   {
     value: "operator",
-    label: "Operator",
+    label: "Operador",
     description: "Recommended for people who need to help run work without managing access.",
     gets: "Can assign tasks.",
   },
@@ -40,7 +40,7 @@ const inviteRoleOptions = [
   },
   {
     value: "owner",
-    label: "Owner",
+    label: "Propietario",
     description: "Full company access, including membership and permission management.",
     gets: "Everything in Admin, plus managing members and permission grants.",
   },
@@ -49,7 +49,7 @@ const inviteRoleOptions = [
 const inviteHistory = [
   {
     id: "invite-active",
-    state: "Active",
+    state: "Activo",
     humanRole: "operator",
     invitedBy: "Board User 25",
     email: "board25@paperclip.local",
@@ -207,7 +207,7 @@ function InviteSummaryPanel({
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        <MetaCard label="Company" value="Acme Robotics" />
+        <MetaCard label="Empresa" value="Acme Robotics" />
         <MetaCard label="Invited by" value="Board User" />
         <MetaCard label="Requested access" value={requestedAccess} />
         <MetaCard label="Invite expires" value="Mar 7, 2027" />
@@ -502,7 +502,7 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
             <div className="mt-5 text-sm text-muted-foreground">
               {mode === "sign_in" ? "Need an account?" : "Already have an account?"}{" "}
               <span className="font-medium text-foreground underline underline-offset-2">
-                {mode === "sign_in" ? "Create one" : "Sign in"}
+                {mode === "sign_in" ? "Create one" : "Iniciar Sesión"}
               </span>
             </div>
           </div>
@@ -813,7 +813,7 @@ export function InviteUxLab() {
                 title="Join Acme Robotics"
                 description="Create your Paperclip account first. If you already have one, switch to sign in and continue the invite with the same email."
                 inviteMessage="Welcome aboard."
-                requestedAccess="Operator"
+                requestedAccess="Operador"
               />
             }
             right={<InlineAuthPreview mode="sign_up" />}
@@ -825,7 +825,7 @@ export function InviteUxLab() {
                 title="Join Acme Robotics"
                 description="Create your Paperclip account first. If you already have one, switch to sign in and continue the invite with the same email."
                 inviteMessage="Welcome aboard."
-                requestedAccess="Operator"
+                requestedAccess="Operador"
               />
             }
             right={
@@ -845,7 +845,7 @@ export function InviteUxLab() {
                 title="Join Acme Robotics"
                 description="Your account is ready. Review the invite details, then accept it to continue."
                 inviteMessage="Welcome aboard."
-                requestedAccess="Operator"
+                requestedAccess="Operador"
                 signedInLabel="Jane Example"
               />
             }
@@ -868,7 +868,7 @@ export function InviteUxLab() {
               <InviteSummaryPanel
                 title="Join Acme Robotics"
                 description="Your account is ready. Review the invite details, then accept it to continue."
-                requestedAccess="Operator"
+                requestedAccess="Operador"
                 signedInLabel="Jane Example"
               />
             }

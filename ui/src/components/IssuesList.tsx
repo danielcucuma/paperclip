@@ -88,13 +88,13 @@ function findIssuesScrollContainer(element: HTMLElement | null): HTMLElement | n
 }
 const boardIssueStatuses = ISSUE_STATUSES;
 const issueStatusLabels: Record<IssueStatus, string> = {
-  backlog: "Backlog",
-  todo: "Todo",
+  backlog: "Pendiente",
+  todo: "Por Hacer",
   in_progress: "In progress",
   in_review: "In review",
-  done: "Done",
-  blocked: "Blocked",
-  cancelled: "Cancelled",
+  done: "Listo",
+  blocked: "Bloqueado",
+  cancelled: "Cancelado",
 };
 const progressSegmentClasses: Record<IssueStatus, string> = {
   backlog: "bg-muted-foreground/40",
@@ -1139,8 +1139,8 @@ export function IssuesList({
     return defaults;
   }, [baseCreateIssueDefaults, currentUserId, issueById, projectId, viewState.groupBy]);
 
-  const createActionLabel = createIssueLabel ? `Create ${createIssueLabel}` : "Create Issue";
-  const createButtonLabel = createIssueLabel ? `New ${createIssueLabel}` : "New Issue";
+  const createActionLabel = createIssueLabel ? `Create ${createIssueLabel}` : "Crear Tarea";
+  const createButtonLabel = createIssueLabel ? `New ${createIssueLabel}` : "Nueva Tarea";
   const openCreateIssueDialog = useCallback((groupKey?: string) => {
     openNewIssue(newIssueDefaults(groupKey));
   }, [newIssueDefaults, openNewIssue]);
@@ -1252,7 +1252,7 @@ export function IssuesList({
           {viewState.viewMode === "list" && (
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" size="icon" className="h-8 w-8 shrink-0" title="Sort">
+                <Button variant="outline" size="icon" className="h-8 w-8 shrink-0" title="Ordenar">
                   <ArrowUpDown className="h-3.5 w-3.5" />
                 </Button>
               </PopoverTrigger>
@@ -1260,11 +1260,11 @@ export function IssuesList({
                 <div className="p-2 space-y-0.5">
                   {([
                     ["workflow", "Workflow"],
-                    ["status", "Status"],
-                    ["priority", "Priority"],
-                    ["title", "Title"],
-                    ["created", "Created"],
-                    ["updated", "Updated"],
+                    ["status", "Estado"],
+                    ["priority", "Prioridad"],
+                    ["title", "Título"],
+                    ["created", "Creado"],
+                    ["updated", "Actualizado"],
                   ] as const).map(([field, label]) => (
                     <button
                       key={field}
@@ -1296,19 +1296,19 @@ export function IssuesList({
           {viewState.viewMode === "list" && (
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" size="icon" className="h-8 w-8 shrink-0" title="Group">
+                <Button variant="outline" size="icon" className="h-8 w-8 shrink-0" title="Agrupar">
                   <Layers className="h-3.5 w-3.5" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent align="end" className="w-44 p-0">
                 <div className="p-2 space-y-0.5">
                   {([
-                    ["status", "Status"],
-                    ["priority", "Priority"],
-                    ["assignee", "Assignee"],
+                    ["status", "Estado"],
+                    ["priority", "Prioridad"],
+                    ["assignee", "Asignado"],
                     ["workspace", "Workspace"],
                     ["parent", "Parent Issue"],
-                    ["none", "None"],
+                    ["none", "Ninguno"],
                   ] as const).map(([value, label]) => (
                     <button
                       key={value}
@@ -1513,11 +1513,11 @@ export function IssuesList({
                               </span>
                             ) : null}
                             {issueBadge ? (
-                              issueBadge === "Paused" ? (
+                              issueBadge === "Pausado" ? (
                                 <span
                                   className={cn("ml-1.5 inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] font-medium", statusBadge.paused)}
-                                  aria-label="Paused"
-                                  title="Paused"
+                                  aria-label="Pausado"
+                                  title="Pausado"
                                 >
                                   <CircleSlash2 className="h-3 w-3" />
                                   Paused

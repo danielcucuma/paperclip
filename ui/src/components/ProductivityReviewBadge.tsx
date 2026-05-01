@@ -12,11 +12,11 @@ const TRIGGER_LABELS: Record<string, string> = {
 };
 
 const REVIEW_STATUS_LABELS: Record<string, string> = {
-  todo: "Open",
+  todo: "Abrir",
   in_progress: "In progress",
   in_review: "In review",
-  blocked: "Blocked",
-  backlog: "Open",
+  blocked: "Bloqueado",
+  backlog: "Abrir",
 };
 
 export function productivityReviewTriggerLabel(

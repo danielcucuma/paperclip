@@ -389,9 +389,9 @@ export function ExecutionWorkspaceDetail() {
   useEffect(() => {
     if (!workspace) return;
     const crumbs = [
-      { label: "Projects", href: "/projects" },
+      { label: "Proyectos", href: "/projects" },
       ...(project ? [{ label: project.name, href: `/projects/${projectRef}` }] : []),
-      ...(project ? [{ label: "Workspaces", href: `/projects/${projectRef}/workspaces` }] : []),
+      ...(project ? [{ label: "Espacios", href: `/projects/${projectRef}/workspaces` }] : []),
       { label: workspace.name },
     ];
     setBreadcrumbs(crumbs);
@@ -567,9 +567,9 @@ export function ExecutionWorkspaceDetail() {
         <Tabs value={activeTab ?? "configuration"} onValueChange={(value) => handleTabChange(value as ExecutionWorkspaceTab)}>
           <PageTabBar
             items={[
-              { value: "configuration", label: "Configuration" },
+              { value: "configuration", label: "Configuración" },
               { value: "runtime_logs", label: "Runtime logs" },
-              { value: "issues", label: "Issues" },
+              { value: "issues", label: "Tareas" },
             ]}
             align="start"
             value={activeTab ?? "configuration"}
@@ -814,7 +814,7 @@ export function ExecutionWorkspaceDetail() {
                 ) : workspace.projectWorkspaceId ? (
                   <MonoValue value={workspace.projectWorkspaceId} />
                 ) : (
-                  "None"
+                  "Ninguno"
                 )}
               </DetailRow>
               <DetailRow label="Source issue">
@@ -825,7 +825,7 @@ export function ExecutionWorkspaceDetail() {
                 ) : workspace.sourceIssueId ? (
                   <MonoValue value={workspace.sourceIssueId} />
                 ) : (
-                  "None"
+                  "Ninguno"
                 )}
               </DetailRow>
               <DetailRow label="Derived from">
@@ -836,7 +836,7 @@ export function ExecutionWorkspaceDetail() {
                 ) : workspace.derivedFromExecutionWorkspaceId ? (
                   <MonoValue value={workspace.derivedFromExecutionWorkspaceId} />
                 ) : (
-                  "None"
+                  "Ninguno"
                 )}
               </DetailRow>
               <DetailRow label="Workspace ID">
@@ -852,10 +852,10 @@ export function ExecutionWorkspaceDetail() {
               </CardHeader>
               <CardContent>
               <DetailRow label="Working dir">
-                {workspace.cwd ? <MonoValue value={workspace.cwd} copy /> : "None"}
+                {workspace.cwd ? <MonoValue value={workspace.cwd} copy /> : "Ninguno"}
               </DetailRow>
               <DetailRow label="Provider ref">
-                {workspace.providerRef ? <MonoValue value={workspace.providerRef} copy /> : "None"}
+                {workspace.providerRef ? <MonoValue value={workspace.providerRef} copy /> : "Ninguno"}
               </DetailRow>
               <DetailRow label="Repo URL">
                 {workspace.repoUrl && isSafeExternalUrl(workspace.repoUrl) ? (
@@ -871,14 +871,14 @@ export function ExecutionWorkspaceDetail() {
                 ) : workspace.repoUrl ? (
                   <MonoValue value={workspace.repoUrl} copy />
                 ) : (
-                  "None"
+                  "Ninguno"
                 )}
               </DetailRow>
               <DetailRow label="Base ref">
-                {workspace.baseRef ? <MonoValue value={workspace.baseRef} copy /> : "None"}
+                {workspace.baseRef ? <MonoValue value={workspace.baseRef} copy /> : "Ninguno"}
               </DetailRow>
               <DetailRow label="Branch">
-                {workspace.branchName ? <MonoValue value={workspace.branchName} copy /> : "None"}
+                {workspace.branchName ? <MonoValue value={workspace.branchName} copy /> : "Ninguno"}
               </DetailRow>
               <DetailRow label="Opened">{formatDateTime(workspace.openedAt)}</DetailRow>
               <DetailRow label="Last used">{formatDateTime(workspace.lastUsedAt)}</DetailRow>
