@@ -2,7 +2,7 @@ services:
   kukuma-ai:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.coolify
     ports:
       - "3100:3100"
     environment:
