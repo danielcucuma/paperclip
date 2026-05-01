@@ -52,12 +52,52 @@ ARG USER_GID=1000
 WORKDIR /app
 COPY --chown=node:node --from=build /app /app
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends openssh-client jq \
+  && apt-get install -y --no-install-recommends openssh-client jq postgresql-client \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /paperclip \
   && chown node:node /paperclip
 
-COPY scripts/docker-entrypoint.sh /usr/local/bin/
+RUN cat > /usr/local/bin/docker-entrypoint.sh <<'ENTRYPOINT_EOF'
+#!/bin/sh
+set -e
+
+PUID=${USER_UID:-1000}
+PGID=${USER_GID:-1000}
+
+changed=0
+
+if [ "$(id -u node)" -ne "$PUID" ]; then
+    echo "Updating node UID to $PUID"
+    usermod -o -u "$PUID" node
+    changed=1
+fi
+
+if [ "$(id -g node)" -ne "$PGID" ]; then
+    echo "Updating node GID to $PGID"
+    groupmod -o -g "$PGID" node
+    usermod -g "$PGID" node
+    changed=1
+fi
+
+if [ "$changed" = "1" ]; then
+    chown -R node:node /paperclip
+fi
+
+if [ "${PAPERCLIP_FORCE_RESET_SCHEMA:-}" = "true" ] && [ -n "${DATABASE_URL:-}" ]; then
+    echo "[entrypoint] PAPERCLIP_FORCE_RESET_SCHEMA=true — checking database state..."
+    HAS_TABLES=$(psql "$DATABASE_URL" -t -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public';" 2>/dev/null | tr -d '[:space:]' || echo "0")
+    HAS_JOURNAL=$(psql "$DATABASE_URL" -t -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public' AND table_name = '__drizzle_migrations';" 2>/dev/null | tr -d '[:space:]' || echo "0")
+    if [ "${HAS_TABLES:-0}" -gt "0" ] && [ "${HAS_JOURNAL:-0}" -eq "0" ]; then
+        echo "[entrypoint] Wiping stale schema (${HAS_TABLES} tables, no __drizzle_migrations)..."
+        psql "$DATABASE_URL" -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+        echo "[entrypoint] Schema wiped. Drizzle will apply fresh migrations."
+    else
+        echo "[entrypoint] DB OK (tables=${HAS_TABLES:-0}, journal=${HAS_JOURNAL:-0}) — no wipe needed."
+    fi
+fi
+
+exec gosu node "$@"
+ENTRYPOINT_EOF
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV NODE_ENV=production \
